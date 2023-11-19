@@ -1,0 +1,32 @@
+{
+  "name": "GPT-4 Turn Counter",
+  "version": "0.1.0",
+  "description": "Counting GPT-4 chat turns",
+  "permissions": ["storage", "tabs", "scripting"],
+  "host_permissions": ["https://chat.openai.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://chat.openai.com/*"],
+      "js": ["contentScript.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["assets/bookmark.png", "assets/play.png", "assets/delete.png", "assets/save.png"],
+      "matches": ["https://chat.openai.com/*"]
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "16": "assets/gpt4-icon.png",
+      "24": "assets/gpt4-icon.png",
+      "32": "assets/gpt4-icon.png"
+    },
+    "default_title": "GPT-4 Turn Counter",
+    "default_popup": "popup.html"
+  },
+  "manifest_version": 3
+}
